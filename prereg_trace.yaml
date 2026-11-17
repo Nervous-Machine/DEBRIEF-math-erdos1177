@@ -1,0 +1,66 @@
+# Pre-registration, cycle 1: a definitional trace (reading guide) of the formal statements of Erdős Problem #1177, for
+# human semantic review. Written 2026-11-17 at tier zero (nothing built or run on this record) and BEFORE reading any
+# definition behind the statements (the claimant's Defs.lean and Structures.lean, formal-conjectures' hypergraph
+# utilities, or Mathlib) or writing any rendering. Changes after this point go in an amendment at the end.
+mission: DEBRIEF-math-erdos1177
+cycle: 1
+dated: "2026-11-17"
+by: "Nervous Machine (Heidi Bennett; Claude Code as the operating agent)"
+question: >
+  Can the open semantic gap (EG2: do the formal statements say what Erdős, Galvin and Hajnal asked?) be made cheaper for
+  a human reviewer, by laying out the three statements as posed, the third-party formal statements and the claimant's
+  own, every definition they depend on down to Mathlib, a plain rendering of each, and the specific points a
+  mathematician has to confirm? In particular: is each of the three answers (yes, no, yes) attached to the right
+  statement, and is the "no" the true negation of the second statement as posed?
+what_this_cycle_is:
+  - "An aid for review: trace/DEFINITIONAL-TRACE.md, read from source files fetched at pinned commits, plus a Lean file
+     of small worked examples and print commands (cycles/trace-1/Trace.lean)."
+  - "The renderings are the operating agent's reading of Lean and Mathlib source. They are a reading, not a check."
+what_this_cycle_is_not:
+  - "Not an independent human semantic review. EG2 stays open after this cycle whatever the trace says; the trace moves
+     no standing."
+  - "Not a build. Nothing is built, run or executed in this cycle: not the claimant's development, not formal-conjectures,
+     not the worked examples. The rerun is gap EG1 and is shared with the record on problem 593."
+  - "It does not read or judge the paper's argument (EG3)."
+rules:
+  R1: "Every Lean statement is quoted verbatim from the formal-conjectures file at e028240a (blob d1d8f933), from the
+       claimant's repository at 5dcb6e49, or from the Mathlib revision in the claimant's lake-manifest.json, with file
+       and line, fetched read-only by commit. Definitions formal-conjectures takes from its own utility library are
+       quoted at the same formal-conjectures commit."
+  R2: "Each rendering is marked as the agent's reading. Where the agent is unsure what a definition means, it says so."
+  R3: "Any place where a formal statement and the problem as posed differ in a way the agent can see (which notion of
+       colouring, which notion of containment, size as vertices or edges, universe level, the handling of isolated
+       vertices or of G with no edges, quantifier order in the negation, which hypotheses the negation keeps) is
+       recorded as a discrepancy whether or not it looks harmless, and as an anomaly in the ledger if it could change
+       the meaning."
+  R4: "Worked examples are written as Lean commands and are NOT run in this cycle. The trace and the cycle say so and
+       report no output; worked_examples_checked_by_lean is 0 until someone runs them."
+observed_before_this_prereg:
+  - "The problem page (erdosproblems.com/1177, last edited 23 January 2026, citing [Va99, 7.94]) states three assertions:
+     if F_G(aleph_1) is non-empty there is X in it of cardinality at most 2^(2^aleph_0); if F_G(aleph_1) and F_H(aleph_1)
+     are non-empty so is their intersection; if kappa, lambda are uncountable and F_G(kappa) is non-empty so is F_G(lambda).
+     F_G(kappa) is the 3-uniform hypergraphs with chromatic number kappa not containing G, for G finite 3-uniform."
+  - "The formal-conjectures file states three theorems erdos_1177.parts.i, .ii, .iii, each with proof sorry and tagged
+     research solved. Part ii is stated as the negation (¬ ∀ W U G H, ... → ∃ V X, ...). None uses an answer(...)
+     wrapper at this commit. They use UniformHypergraph, HasAvoidingChromaticCardinal, chromaticCardinal and Appears
+     from FormalConjecturesUtil, with vertex types in Type (universe 0)."
+  - "The claimant's headline statements (PublicationCertificate.lean, FinalResultsUnconditional.lean) use the
+     claimant's own FTS, Hypergraph, IsTripleSystem, HasChromatic, FGnonempty and Embeds, are universe-polymorphic,
+     and state part 2 as ∃ G H, nonempty ∧ nonempty ∧ ¬ ∃ common member. A text search of the claimant's repository
+     finds no mention of formal-conjectures or its definitions, so no machine bridge between the two statements exists
+     there."
+predictions:
+  P1: "Each of the three formal-conjectures theorems renders to the matching assertion on the page with no quantifier
+       mismatch, and part ii is the true negation of assertion 2 with both non-emptiness hypotheses kept."
+  P2: "The claimant's three statements render to the same three assertions, with part 2 the classical equivalent of the
+       formal-conjectures negation; but because the two use different definitions, their agreement rests on the
+       definitions meaning the same thing, which a reader has to confirm and which no machine has checked."
+  P3: "Both libraries use weak (no monochromatic edge) colouring and non-induced containment by an injective vertex
+       map, and measure size by vertices; at least two conventions need a sentence (candidates: universe level, the
+       sInf convention for chromatic cardinals, G with isolated vertices or no edges, DecidableEq in part ii, aleph 1
+       written as succ aleph_0); none changes the meaning."
+standing_consequences:
+  any_outcome: "EG2 remains open. Its status moves proposed -> in_cycle and its ask changes from 'read the formal
+                statement' to 'read the trace against the formal statements and the problem page, and sign or refuse
+                each checklist item'."
+  discrepancy_found: "An anomaly is opened naming it, linked to EG2, and the trace's checklist puts it first."
