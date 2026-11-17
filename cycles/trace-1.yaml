@@ -1,0 +1,45 @@
+# Cycle 1: a definitional trace (reading guide) of the formal statements, for human semantic review.
+# Pre-registered in prereg_trace.yaml (hashed 2026-11-17T18:06:36Z) before any definition behind the statements was read.
+kind: trace
+cycle: 1
+dated: "2026-11-17"
+by: "Nervous Machine (Heidi Bennett; Claude Code as the operating agent)"
+not_an_author_of_the_claim: true
+preregistered:
+  commit: "prereg_trace.yaml"
+  results: ["trace/DEFINITIONAL-TRACE.md", "cycles/trace-1/Trace.lean"]
+  question: "Can the open semantic gap (EG2) be made cheaper for a human reviewer: the three assertions as posed, the third-party and the claimant's formal statements, every definition behind them, a plain rendering, and the points to confirm; in particular, is each answer attached to the right statement and is the 'no' the true negation?"
+  rule: "Statements quoted verbatim from files fetched read-only at pinned commits, with file and line; renderings marked as the agent's; every discrepancy recorded whether harmless or not, and an anomaly opened if it could change the meaning; worked examples written but not run, and no output claimed; standing unchanged by construction."
+  predictions:
+    - "P1: the three formal-conjectures statements render to the page's three assertions with no quantifier mismatch; part ii is the true negation of assertion 2 with both hypotheses kept"
+    - "P2: the claimant's statements render to the same assertions, part 2 the classical equivalent of the negation, but their agreement with formal-conjectures rests on definitions no machine has linked"
+    - "P3: both use weak colouring, non-induced injective containment and vertex count; at least two conventions need a sentence; none changes the meaning"
+  before_data: true
+outcome:
+  verdict: confirmed
+  numbers:
+    statements_traced: 6
+    definitions_cited: 24
+    discrepancies_recorded: 10
+    content_affecting_discrepancies_seen_by_agent: 0
+    discrepancies_that_could_change_meaning_depending_on_source: 1
+    anomalies_opened: 1
+    worked_examples_written: 7
+    worked_examples_checked_by_lean: 0
+    human_review: false
+    checklist_items: 6
+  misses: []
+spoken: >-
+  Nervous Machine wrote the reading guide for the question on this record that a machine cannot settle: whether the
+  formal statements of problem 1177 say what Erdős, Galvin and Hajnal asked, and whether the answers yes, no and yes are
+  attached to the right ones. The guide quotes the problem page, the third-party formal statements and the claimant's
+  own, which are two separate formalisations that no machine links, and traces every symbol to its definition with file
+  and line. In the agent's reading both say what the page says, and the no is the true negation of the second
+  assertion. One thing was not predicted: the claimant's paper says the 1999 source asked the first two assertions for
+  uncountably chromatic systems, not for chromatic number exactly aleph one. For the no, the exact version is the
+  weaker refutation, so if the older wording is the problem, the formal no does not settle it on its own; the paper's
+  argument appears to give the stronger no, but no Lean statement says so. That is opened as anomaly A1. Seven small
+  Lean checks are written but have not been run. The readings are the system's, not a mathematician's, so nothing
+  changed standing. A set theorist can now sign or refuse five lines.
+finding_ids: []
+gap_ids: ["EG2"]

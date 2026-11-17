@@ -23,9 +23,9 @@
    "began": "2026-11-14",
    "status": "active",
    "record_quality": "full_ledger",
-   "record_note": "Opened at tier zero: the claim and its artifacts are pinned, the gaps are drawn, nothing has been run or read by Nervous Machine.",
+   "record_note": "Opened at tier zero on 2026-11-14: the claim and its artifacts pinned, the gaps drawn, nothing run. Cycle 1, 2026-11-17: the reading guide for the semantic question, written from source read at pinned commits; nothing built or run.",
    "record_limits": [
-    "Nothing in this record has been checked by Nervous Machine or by anyone independent of the claimants; every item is an open gap."
+    "Nothing in this record has been built, run or checked by Nervous Machine or by anyone independent of the claimant. The reading guide (cycle 1) is the operating agent's reading of the formal statements, not a check, and its worked examples have not been run."
    ],
    "scope_limits": [
     "Nervous Machine keeps score of the checks; it does not check the mathematics line by line.",
@@ -38,7 +38,7 @@
     "spoken": "Erdős, Galvin and Hajnal posed three statements about the families of 3-uniform hypergraphs of a given uncountable chromatic number that avoid a fixed finite one. In June 2026 Eric Li's paper on problem 593 claimed, as a consequence, that the three statements have the answers yes, no and yes. The paper and Lean development are the same as for problem 593, so a rerun there is a rerun here. Nobody independent has reported either. Everything here is open."
    },
    "what_happened": {
-    "spoken": "The claim was pinned from the public record: the problem page, the proof-claims thread, and every artifact the claimants made public, by commit or hash. Nothing was run. The gaps that follow are the checks still owed."
+    "spoken": "The claim was pinned from the public record: the problem page, the proof-claims thread, and every artifact the claimants made public, by commit or hash. Nothing has been run. On 2026-11-17 Nervous Machine wrote a reading guide that lays the third-party formal statements and the claimant's own beside the problem page, definition by definition, and records one question about which wording of the second assertion is the problem. The gaps that follow are the checks still owed."
    },
    "implications": {
     "rely_on": [],
@@ -109,6 +109,58 @@
     "EG2",
     "EG3"
    ]
+  },
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "erdos1177-2026-11",
+   "pod": "DEBRIEF-math-erdos1177",
+   "created_by": "contributed cycle (merge_cycles.py)",
+   "created_at": "2026-11-17T18:13:17Z",
+   "provenance": {
+    "source": "contributed cycle file trace-1.yaml"
+   },
+   "audience": "briefing",
+   "kind": "trace",
+   "cycle": 1,
+   "dated": "2026-11-17",
+   "by": "Nervous Machine (Heidi Bennett; Claude Code as the operating agent)",
+   "not_an_author_of_the_claim": true,
+   "preregistered": {
+    "commit": "prereg_trace.yaml",
+    "results": [
+     "trace/DEFINITIONAL-TRACE.md",
+     "cycles/trace-1/Trace.lean"
+    ],
+    "question": "Can the open semantic gap (EG2) be made cheaper for a human reviewer: the three assertions as posed, the third-party and the claimant's formal statements, every definition behind them, a plain rendering, and the points to confirm; in particular, is each answer attached to the right statement and is the 'no' the true negation?",
+    "rule": "Statements quoted verbatim from files fetched read-only at pinned commits, with file and line; renderings marked as the agent's; every discrepancy recorded whether harmless or not, and an anomaly opened if it could change the meaning; worked examples written but not run, and no output claimed; standing unchanged by construction.",
+    "predictions": [
+     "P1: the three formal-conjectures statements render to the page's three assertions with no quantifier mismatch; part ii is the true negation of assertion 2 with both hypotheses kept",
+     "P2: the claimant's statements render to the same assertions, part 2 the classical equivalent of the negation, but their agreement with formal-conjectures rests on definitions no machine has linked",
+     "P3: both use weak colouring, non-induced injective containment and vertex count; at least two conventions need a sentence; none changes the meaning"
+    ],
+    "before_data": true
+   },
+   "outcome": {
+    "verdict": "confirmed",
+    "numbers": {
+     "statements_traced": 6,
+     "definitions_cited": 24,
+     "discrepancies_recorded": 10,
+     "content_affecting_discrepancies_seen_by_agent": 0,
+     "discrepancies_that_could_change_meaning_depending_on_source": 1,
+     "anomalies_opened": 1,
+     "worked_examples_written": 7,
+     "worked_examples_checked_by_lean": 0,
+     "human_review": false,
+     "checklist_items": 6
+    },
+    "misses": []
+   },
+   "spoken": "Nervous Machine wrote the reading guide for the question on this record that a machine cannot settle: whether the formal statements of problem 1177 say what Erdős, Galvin and Hajnal asked, and whether the answers yes, no and yes are attached to the right ones. The guide quotes the problem page, the third-party formal statements and the claimant's own, which are two separate formalisations that no machine links, and traces every symbol to its definition with file and line. In the agent's reading both say what the page says, and the no is the true negation of the second assertion. One thing was not predicted: the claimant's paper says the 1999 source asked the first two assertions for uncountably chromatic systems, not for chromatic number exactly aleph one. For the no, the exact version is the weaker refutation, so if the older wording is the problem, the formal no does not settle it on its own; the paper's argument appears to give the stronger no, but no Lean statement says so. That is opened as anomaly A1. Seven small Lean checks are written but have not been run. The readings are the system's, not a mathematician's, so nothing changed standing. A set theorist can now sign or refuse five lines.",
+   "finding_ids": [],
+   "gap_ids": [
+    "EG2"
+   ]
   }
  ],
  "findings": [],
@@ -156,10 +208,18 @@
    "audience": "briefing",
    "gap_id": "EG2",
    "title": "Do the formal statements say what the problem asks?",
-   "status": "proposed",
+   "status": "in_cycle",
    "opened_cycle": 0,
    "priority": 2,
-   "history": [],
+   "history": [
+    {
+     "cycle": 1,
+     "hypothesis": "a definitional trace makes the human read cheap, and shows whether each answer is attached to the right statement",
+     "before_data": true,
+     "by": "Nervous Machine (Heidi Bennett; Claude Code as the operating agent)",
+     "result": "trace/DEFINITIONAL-TRACE.md written: six statements (three third-party, three the claimant's) traced to their definitions; the two formalisations are independent and no machine links them; ten discrepancies recorded, one of which (anomaly A1: exact chromatic number aleph one versus uncountably chromatic in the second assertion) could change the meaning of the no depending on which wording is the problem; seven worked examples written, none run; status proposed -> in_cycle, the ask is now to sign or refuse the checklist"
+    }
+   ],
    "closes_with": [
     {
      "what": "a machine comparison of the claimant's main theorem with the third-party formal statement in google-deepmind/formal-conjectures, then a human read of any difference",
@@ -176,9 +236,9 @@
    ],
    "spoken": "A Lean check establishes that the formal statement follows from its hypotheses. Whether that formal statement is the problem Erdős posed is a separate question that a person has to answer. A third-party formalization of the problem statement exists, so part of this can be compared by machine.",
    "ask": {
-    "spoken": "A reading of the formal statement against the problem as posed, by someone who did not write it."
+    "spoken": "A set theorist who is not an author reads trace/DEFINITIONAL-TRACE.md against the formal statements and the problem page and signs or refuses its five checklist lines, starting with C1: does a no for chromatic number exactly aleph one answer the second assertion as Erdős, Galvin and Hajnal posed it? Two independent signatures close this gap."
    },
-   "expected_signal": "a trace cycle and two signed read cycles, or a refusal naming the difference",
+   "expected_signal": "two signed read cycles with no refusal, or a refusal naming the line and the difference",
    "resolution_by": "none registered"
   },
   {
@@ -219,7 +279,39 @@
    "resolution_by": "none registered"
   }
  ],
- "anomalies": [],
+ "anomalies": [
+  {
+   "schema_version": "nm-debrief-v1",
+   "mission_id": "erdos1177-2026-11",
+   "pod": "DEBRIEF-math-erdos1177",
+   "created_by": "Nervous Machine trace cycle 1",
+   "created_at": "2026-11-17T18:13:17Z",
+   "provenance": {
+    "source": "trace/DEFINITIONAL-TRACE.md, discrepancy D1; paper.tex lines 268 to 271 and 2045 to 2051 in ericlisg/erdos-593-1177-lean at 5dcb6e49"
+   },
+   "audience": "briefing",
+   "anomaly_id": "A1",
+   "when": "2026-11-17",
+   "node": "EG2: formal statement of the second assertion",
+   "spoken": "The problem page and both formal statements read the second assertion for systems of chromatic number exactly aleph one. The claimant's paper says the 1999 source put it for uncountably chromatic systems. For the no answer the exact version is the weaker refutation: it does not by itself rule out a system of larger uncountable chromatic number avoiding both forbidden systems. The paper's argument appears to give the stronger no, through a result the development also formalises, but no Lean statement says so and nobody has checked it. If the older wording is the problem, the formal no does not settle the second assertion on its own.",
+   "status": "open",
+   "urgency": "daily",
+   "from_trusted_node": false,
+   "evidence": {
+    "trace": "trace/DEFINITIONAL-TRACE.md Part E, D1",
+    "formal_conjectures": "FormalConjectures/ErdosProblems/1177.lean l.57-63 at e028240a",
+    "claimant": "RequestProject/PublicationCertificate.lean l.52-58 at 5dcb6e49",
+    "source_wording": "paper.tex l.268-271 (the claimant's account; the 1999 booklet was not consulted)",
+    "possible_closure": "e5_HK_loose7, RequestProject/E5HK.lean l.838"
+   },
+   "gap_id": "EG2",
+   "alert": {
+    "sent": false,
+    "channel": null,
+    "at": null
+   }
+  }
+ ],
  "background": [
   {
    "schema_version": "nm-debrief-v1",
